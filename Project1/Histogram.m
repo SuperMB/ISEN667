@@ -1,6 +1,4 @@
 function [arrayHistogram, arrayChannels] = Histogram( array, numberOfChannels )
-%UNTITLED3 Summary of this function goes here
-%   Detailed explanation goes here
 
     minArray = min(array);
     maxArray = max(array);
@@ -20,6 +18,10 @@ function [arrayHistogram, arrayChannels] = Histogram( array, numberOfChannels )
        arrayChannels(i) = minArray + (i-1)*arrayInterval; 
     end
     figure
-    bar(arrayHistogram);
+    if(arrayInterval == 0)
+        bar(arrayChannels(1), arrayHistogram(1));        
+    else
+        bar(arrayChannels, arrayHistogram);
+    end
 end
 
